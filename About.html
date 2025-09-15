@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About · Tugas Mandiri 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Beranda">
+        <svg width="36" height="36" viewBox="0 0 100 100" aria-hidden>
+          <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#6dd3ff"/><stop offset="1" stop-color="#7b61ff"/></linearGradient></defs>
+          <circle cx="50" cy="50" r="45" fill="url(#g)"/>
+          <text x="50" y="58" font-size="40" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif">S</text>
+        </svg>
+        <span class="brand-name">Matakuliah Pengembangan Aplikasi Berbasis WEB</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-label="Buka menu">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="main-nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-about">
+    <section class="about-intro">
+      <h1>Tentang Saya</h1>
+      <p class="lead">Perkenalkan saya <strong>Virtsa Gita Saputri</strong>, saya mahasiswa Program Studi Sistem Informasi Angkatan 2023. Di sini saya sedang mempelajari dasar-dasar pengembangan web. Website ini dibuat sebagai bagian dari tugas 2 untuk mempraktikkan pembuatan halaman statis dengan HTML dan CSS.</p>
+      <p class="lead">Melalui tugas ini, saya belajar cara membuat struktur website multi-halaman, menghubungkan antar halaman menggunakan navigasi, serta menerapkan desain yang menarik dengan CSS.</p>
+    </section>
+
+    <section class="about-grid">
+      <div class="card">
+        <h3>Profil Singkat</h3>
+        <p><strong>Nama:</strong> Virtsa Gita Saputri</p>
+        <p><strong>NPM:</strong> 202357201033</p>
+        <p><strong>Mata Kuliah:</strong> Pengembangan Aplikasi Berbasis WEB</p>
+      </div>
+
+      <div class="card">
+        <h3>Tujuan Pembuatan</h3>
+        <p>Website ini dibuat sebagai implementasi dari tugas akademik untuk memperdalam pemahaman tentang pengembangan website statis. Tujuannya adalah:</p>
+        <ul>
+          <li>Membuat website dengan lebih dari 1 halaman (Home, About, Contact)</li>
+          <li>Menghubungkan antar halaman menggunakan navigation menu</li>
+          <li>Menerapkan desain sederhana namun menarik dengan CSS</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Teknologi yang Digunakan</h3>
+        <p>Website ini dibangun dengan teknologi dasar berikut:</p>
+        <ul>
+          <li><strong>HTML</strong> — Struktur dasar website</li>
+          <li><strong>CSS (Responsive)</strong> — Desain tampilan dan responsivitas</li>
+          <li><strong>JavaScript</strong> — Interaksi sederhana (toggle menu mobile)</li>
+        </ul>
+        <p><em>*Tidak menggunakan backend atau database.</em></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Universitas Musamus — Fakultas Teknik</p>
+      <p>Program Studi Sistem Informasi</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">@virtsagitaaa</a>
+        <a href="mailto:virtsagitasaputri@gmail.com" aria-label="Email">virtsagitasaputri@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+
+    // Auto-highlight active page link
+    document.querySelectorAll('.main-nav a').forEach(a => {
+      if (a.href === location.href || a.href === location.pathname.split('/').pop()) {
+        a.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

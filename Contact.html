@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact · Tugas Mandiri 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Beranda">
+        <svg width="36" height="36" viewBox="0 0 100 100" aria-hidden>
+          <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#6dd3ff"/><stop offset="1" stop-color="#7b61ff"/></linearGradient></defs>
+          <circle cx="50" cy="50" r="45" fill="url(#g)"/>
+          <text x="50" y="58" font-size="40" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif">S</text>
+        </svg>
+        <span class="brand-name">Matakuliah Pengembangan Aplikasi Berbasis WEB</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-label="Buka menu">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="main-nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-contact">
+    <section class="contact-grid">
+      <div class="card contact-card">
+        <h1>Hubungi Saya</h1>
+        <p class="muted">Isi form di bawah (demo) atau gunakan kontak langsung.</p>
+
+        <form id="demo-form">
+          <label class="field">
+            <span>Nama</span>
+            <input type="text" id="nama" name="nama" placeholder="Nama lengkap" required>
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="email" name="email" placeholder="masukan@gmail.com" required>
+          </label>
+
+          <label class="field">
+            <span>Pesan</span>
+            <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan..." required></textarea>
+          </label>
+
+          <div style="display:flex;gap:10px;">
+            <button class="btn primary" type="submit">Kirim (Demo)</button>
+            <a class="btn ghost" href="mailto:virtsagitasaputri@gmail.com">Email Langsung</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card contact-info">
+        <h3>Informasi Kontak</h3>
+        <p>Email: <a href="mailto:virtsagitasaputri@gmail.com">virtsagitasaputri@gmail.com</a></p>
+        <p>Telepon: 0822-3344-5566</p>
+        <p>Instagram: <a href="#" target="_blank">@virtsagitaaa</a></p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Universitas Musamus — Fakultas Teknik</p>
+      <p>Program Studi Sistem Informasi</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">@virtsagitaaa</a>
+        <a href="mailto:virtsagitasaputri@gmail.com" aria-label="Email">virtsagitasaputri@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+
+    // Auto-highlight active page link
+    document.querySelectorAll('.main-nav a').forEach(a => {
+      if (a.href === location.href || a.href === location.pathname.split('/').pop()) {
+        a.classList.add('active');
+      }
+    });
+
+    // Form submission handler
+    document.getElementById("demo-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const email = document.getElementById("email").value;
+      const pesan = document.getElementById("pesan").value;
+
+      alert("✅ Pesan berhasil dikirim!\n\n" +
+            "Nama: " + nama + "\n" +
+            "Email: " + email + "\n" +
+            "Pesan: " + pesan);
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>
